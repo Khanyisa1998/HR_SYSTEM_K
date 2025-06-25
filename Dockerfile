@@ -28,6 +28,10 @@ RUN cp .env.example .env
 # Generate Laravel app key
 RUN php artisan key:generate
 
+# Clear and cache Laravel configuration
+RUN php artisan config:clear && php artisan config:cache
+
+
 # Expose port 8000 to the web
 EXPOSE 8000
 
