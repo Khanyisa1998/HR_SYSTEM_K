@@ -22,6 +22,9 @@ RUN composer install --no-dev --optimize-autoloader
 # Fix folder permissions
 RUN chmod -R 775 storage bootstrap/cache
 
+# Copy .env.example to .env so key:generate can run
+RUN cp .env.example .env
+
 # Generate Laravel app key
 RUN php artisan key:generate
 
